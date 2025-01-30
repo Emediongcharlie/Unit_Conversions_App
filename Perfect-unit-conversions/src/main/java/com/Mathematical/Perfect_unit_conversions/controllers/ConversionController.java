@@ -1,8 +1,8 @@
 package com.Mathematical.Perfect_unit_conversions.controllers;
 
 
-import com.Mathematical.Perfect_unit_conversions.dtos.request.CalculateLengthRequest;
-import com.Mathematical.Perfect_unit_conversions.dtos.response.CalculateLengthResponse;
+import com.Mathematical.Perfect_unit_conversions.dtos.request.*;
+import com.Mathematical.Perfect_unit_conversions.dtos.response.*;
 import com.Mathematical.Perfect_unit_conversions.sevices.ConversionService;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -26,6 +26,46 @@ public class ConversionController {
     public ResponseEntity<?> lengthConversion(@RequestBody CalculateLengthRequest request){
         try{
             CalculateLengthResponse response = conversionService.calculateLength(request);
+            return new ResponseEntity<>(response, HttpStatus.OK);
+        }catch(Exception e){
+            return new ResponseEntity<>(e.getMessage(), HttpStatus.BAD_REQUEST);
+        }
+    }
+
+    @PostMapping("/area-conversions")
+    public ResponseEntity<?> areaConversion(@RequestBody CalculateAreaRequest request){
+        try{
+            CalculateAreaResponse response = conversionService.calculateArea(request);
+            return new ResponseEntity<>(response, HttpStatus.OK);
+        }catch(Exception e){
+            return new ResponseEntity<>(e.getMessage(), HttpStatus.BAD_REQUEST);
+        }
+    }
+
+    @PostMapping("/volume-conversions")
+    public ResponseEntity<?> volumeConversion(@RequestBody CalculateVolumeRequest request){
+        try{
+            CalculateVolumeResponse response = conversionService.calculateVolume(request);
+            return new ResponseEntity<>(response, HttpStatus.OK);
+        }catch(Exception e){
+            return new ResponseEntity<>(e.getMessage(), HttpStatus.BAD_REQUEST);
+        }
+    }
+
+    @PostMapping("/time-conversions")
+    public ResponseEntity<?> timeConversion(@RequestBody CalculateTimeRequest request){
+        try{
+            CalculateTimeResponse response = conversionService.calculateTime(request);
+            return new ResponseEntity<>(response, HttpStatus.OK);
+        }catch(Exception e){
+            return new ResponseEntity<>(e.getMessage(), HttpStatus.BAD_REQUEST);
+        }
+    }
+
+    @PostMapping("/temperature-conversions")
+    public ResponseEntity<?> temperatureConversion(@RequestBody CalculateTemperatureRequest request){
+        try{
+            CalculateTemperatureResponse response = conversionService.calculateTemperature(request);
             return new ResponseEntity<>(response, HttpStatus.OK);
         }catch(Exception e){
             return new ResponseEntity<>(e.getMessage(), HttpStatus.BAD_REQUEST);

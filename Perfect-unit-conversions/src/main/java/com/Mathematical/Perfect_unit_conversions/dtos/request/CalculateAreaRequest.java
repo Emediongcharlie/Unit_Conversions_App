@@ -2,31 +2,33 @@ package com.Mathematical.Perfect_unit_conversions.dtos.request;
 
 public class CalculateAreaRequest {
 
-    public Long getId() {
-        return id;
+    private double entryValue;
+
+    public String getConvertFrom() {
+        return convertFrom;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setConvertFrom(String convertFrom) {
+        this.convertFrom = convertFrom;
     }
 
-    public Double getFrom() {
-        return from;
+    public String getConvertTo() {
+        return convertTo;
     }
 
-    public void setFrom(Double from) {
-        this.from = from;
+    public void setConvertTo(String convertTo) {
+        this.convertTo = convertTo;
     }
 
-    public Double getTo() {
-        return to;
+    private String convertFrom;
+    private String convertTo;
+
+    public double getEntryValue() {
+        return entryValue;
     }
 
-    public void setTo(Double to) {
-        this.to = to;
+    public void setEntryValue(Double entryValue) {
+        this.entryValue = entryValue;
     }
 
-    private Long id;
-    private Double from;
-    private Double to;
 }
